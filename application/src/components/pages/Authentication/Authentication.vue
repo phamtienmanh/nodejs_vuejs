@@ -96,6 +96,7 @@
 </script>
 
 <style lang="scss">
+  @import "./../../../assets/styles";
   .l-auth {
     background-color: $background-color;
     padding: 15px;
