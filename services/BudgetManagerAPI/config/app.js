@@ -24,3 +24,11 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+app.set('budgetsecret', config.secret);
+consign({ cwd: 'services' })
+  .include('BudgetManagerAPI/app/setup')
+  .then('BudgetManagerAPI/app/api')
+  .then('BudgetManagerAPI/app/routes')
+  .into(app);
+module.exports = app;
